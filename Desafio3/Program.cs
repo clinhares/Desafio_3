@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace desafio3
+namespace Desafio3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var tabela = CriarDataTable();
+            var tabela = CriarTabela();
+
             ImprimirTabela(tabela);
-            Console.Read();
+            Console.WriteLine("\n\n" + "Pressione ENTER para iniciar a conversão de OBJETOS.");
+            Console.ReadKey();
+
+            ConverterTabelaParaObjeto(tabela, out var quatidadeDeConversoes);
+            Console.WriteLine("\n\n" + "Foram convertidos " + quatidadeDeConversoes + " OBJETOS com sucesso!");
+            Console.ReadKey();
         }
 
-        private static DataTable CriarDataTable()
+        private static DataTable CriarTabela()
         {
             var table = new DataTable();
 
@@ -51,9 +51,29 @@ namespace desafio3
 
                 foreach (var item in dataRow.ItemArray)
                 {
-                    Console.Write("| " + item.ToString().PadRight(18,' ') + " |");
+                    Console.Write("| " + item.ToString().PadRight(18, ' ') + " |");
                 }
             }
+        }
+
+        private static void ConverterTabelaParaObjeto(DataTable tabela, out int quatidadeDeConversoes)
+        {
+            var pessoas = new List<Pessoa>();
+            
+            foreach (var item in tabela.AsEnumerable())
+            {
+                var pessoa = new Pessoa();
+
+                pessoa.Id = int.Parse(item[0].ToString());
+                pessoa.Nome = item[1].ToString();
+                pessoa.Email = item[2].ToString();
+                pessoa.Telefone = item[3].ToString();
+                pessoa.Idade = int.Parse(item[4].ToString());
+
+                pessoas.Add(pessoa);
+            }
+
+            quatidadeDeConversoes = pessoas.Count;
         }
     }
 }
