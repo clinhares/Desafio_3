@@ -11,31 +11,12 @@ namespace Desafio3
             var tabela = CriarTabela();
 
             ImprimirTabela(tabela);
-            Console.WriteLine("\n\n" + "Pressione ENTER para iniciar a conversão de OBJETOS.");
+            Console.WriteLine("\n\n\n" + "Pressione ENTER para iniciar a conversão de OBJETOS.");
             Console.ReadKey();
 
             ConverterTabelaParaObjeto(tabela, out var quatidadeDeConversoes);
             Console.WriteLine("\n\n" + "Foram convertidos " + quatidadeDeConversoes + " OBJETOS com sucesso!");
             Console.ReadKey();
-        }
-
-        private static DataTable CriarTabela()
-        {
-            var table = new DataTable();
-
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("NOME", typeof(string));
-            table.Columns.Add("EMAIL", typeof(string));
-            table.Columns.Add("TELEFONE", typeof(string));
-            table.Columns.Add("IDADE", typeof(int));
-
-            table.Rows.Add(1, "José", "jose@yahoo.com", "44669922", 45);
-            table.Rows.Add(2, "Maria", "maria@bol.com.br", "88669977", 23);
-            table.Rows.Add(3, "Lula", "lula@uol.com.br", "96885522", 20);
-            table.Rows.Add(4, "Jessica", "jessica@uol.com.br", "96885522", 25);
-            table.Rows.Add(5, "Miriam", "miriam@uol.com.br", "96885522", 48);
-
-            return table;
         }
 
         private static void ImprimirTabela(DataTable tabela)
@@ -74,6 +55,25 @@ namespace Desafio3
             }
 
             quatidadeDeConversoes = pessoas.Count;
+        }
+
+        private static DataTable CriarTabela()
+        {
+            var table = new DataTable();
+
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("NOME", typeof(string));
+            table.Columns.Add("EMAIL", typeof(string));
+            table.Columns.Add("TELEFONE", typeof(string));
+            table.Columns.Add("IDADE", typeof(int));
+
+            table.Rows.Add(1, "José", "jose@yahoo.com", "44669922", 45);
+            table.Rows.Add(null, "Maria", "maria@bol.com.br", "88669977", 23);
+            table.Rows.Add(3, "Lula", "lula@uol.com.br", "96885522", 20);
+            table.Rows.Add(4, "Jessica", "jessica@uol.com.br", "96885522", 25);
+            table.Rows.Add(5, "Miriam", "miriam@uol.com.br", "96885522", null);
+
+            return table;
         }
     }
 }
