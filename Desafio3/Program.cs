@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading;
 
 namespace Desafio3
 {
@@ -11,12 +12,12 @@ namespace Desafio3
             var tabela = CriarTabela();
 
             ImprimirTabela(tabela);
-            Console.WriteLine("\n\n\n" + "Pressione ENTER para iniciar a conversão de OBJETOS.");
-            Console.ReadKey();
+            Console.WriteLine("\n\n\n" + "Iniciando o processo de conversão de OBJETOS.");
+            Thread.Sleep(3500);
 
             ConverterTabelaParaObjeto(tabela, out var quatidadeDeConversoes);
             Console.WriteLine("\n\n" + "Foram convertidos " + quatidadeDeConversoes + " OBJETOS com sucesso!");
-            Console.ReadKey();
+            Console.Read();
         }
 
         private static void ImprimirTabela(DataTable tabela)
