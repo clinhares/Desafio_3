@@ -12,8 +12,13 @@ namespace Desafio3
             var tabela = CriarTabela();
 
             ImprimirTabela(tabela);
+<<<<<<< HEAD
             Console.WriteLine("\n\n\n" + "Iniciando a conversão de OBJETOS.");
             Thread.Sleep(4000);
+=======
+            Console.WriteLine("\n\n\n" + "Iniciando o processo de conversão de OBJETOS.");
+            Thread.Sleep(3500);
+>>>>>>> 086e0eef42f9ff9f6d035c987cdf06309b189017
 
             ConverterTabelaParaObjeto(tabela, out var quatidadeDeConversoes);
             Console.WriteLine("\n\n" + "Foram convertidos " + quatidadeDeConversoes + " OBJETOS com sucesso!");
