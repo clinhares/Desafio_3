@@ -70,10 +70,10 @@ namespace Desafio3
             table.Columns.Add("IDADE", typeof(int));
 
             table.Rows.Add(1, "José", "jose@yahoo.com", "44669922", 45);
-            table.Rows.Add(null, "Maria", "maria@bol.com.br", "88669977", 23);
+            table.Rows.Add(2, "Maria", "maria@bol.com.br", "88669977", 23);
             table.Rows.Add(3, "Lula", "lula@uol.com.br", "96885522", 20);
             table.Rows.Add(4, "Jessica", "jessica@uol.com.br", "96885522", 25);
-            table.Rows.Add(5, "Miriam", "miriam@uol.com.br", "96885522", null);
+            table.Rows.Add(5, "Miriam", "miriam@uol.com.br", "96885522", 18);
 
             return table;
         }
